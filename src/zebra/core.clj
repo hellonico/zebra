@@ -11,7 +11,7 @@
         (org.scijava.nativelib.NativeLoader/loadLibrary "cvrptw_lib" nil)
         (org.scijava.nativelib.NativeLoader/loadLibrary "ortools" nil)
         (org.scijava.nativelib.NativeLoader/loadLibrary "jniortools" nil))
-      (org.scijava.nativelib.NativeLoader/loadLibrary "ortools" nil))))
+      (org.scijava.nativelib.NativeLoader/loadLibrary "jniortools" nil))))
 (load-natives)
 
 
