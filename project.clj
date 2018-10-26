@@ -19,4 +19,3 @@
                  [com.google.protobuf/protobuf-java "3.6.1"] 
                  [org.scijava/native-lib-loader "2.3.1"]
                  [org.clojure/clojure "1.9.0"]])
-
