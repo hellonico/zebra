@@ -1,4 +1,4 @@
-(defproject zebra "0.1.0-SNAPSHOT"
+(defproject zebra "0.1.0"
   :description "Poor Man's Wrapper for Google's ortools"
   :url "https://github.com/hellonico/zebra"
   :main zebra.core
