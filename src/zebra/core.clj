@@ -17,3 +17,6 @@
   (MPSolver.
    pname
    (MPSolver$OptimizationProblemType/valueOf problem-type)))
+
+(def infinity (MPSolver/infinity))
+(def -infinity (* -1 infinity))
