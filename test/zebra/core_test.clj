@@ -11,7 +11,7 @@
       (.setMaximization objective)
       (.solve solver)
       (is (= 1.0 (.solutionValue x)))
-      (is (= 2.0 (.solutionValue y))))))
+      (is (= 2.0 (.solutionValue y)))))
 
 (deftest linearexample-test
   (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
