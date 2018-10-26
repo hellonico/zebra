@@ -5,7 +5,14 @@
 - jvm >9
 - leiningen
 
-# run the test 
+# tested on 
+
+- windows64
+- macosx
+- debian (x64)
+- manjaro (x64)
+
+# run the tests
 
 ```
 lein test
@@ -13,7 +20,8 @@ lein test
 
 # examples
 
-## 
+## basic solver
+
 ```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
         x (.makeNumVar solver 0.0 1.0 "x")
@@ -26,6 +34,8 @@ lein test
 ```
 
 ## simple linear problem
+
+![](doc/feasible_region.png)
 
 ```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
