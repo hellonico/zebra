@@ -5,9 +5,16 @@
 - jvm >9
 - leiningen
 
-# examples
+# run the test 
 
 ```
+lein test
+```
+
+# examples
+
+## 
+```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
         x (.makeNumVar solver 0.0 1.0 "x")
         y (.makeNumVar solver 0.0 2.0 "y")
@@ -18,7 +25,9 @@
     (is (= 2.0 (.solutionValue y))))
 ```
 
-```
+## simple linear problem
+
+```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
     x (.makeNumVar solver 0.0 infinity "x")
     y (.makeNumVar solver 0.0 infinity "y")
