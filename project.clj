@@ -1,8 +1,16 @@
 (defproject zebra "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Poor Man's Wrapper for Google's ortools"
+  :url "https://github.com/hellonico/zebra"
   :main zebra.core
-  :license {:name "Eclipse Public License"
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag" "--no-sign"]
+                  ["deploy" "vendredi"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "push"]]
+  :license {:name "Apache License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :repositories [["vendredi" {:url "https://repository.hellonico.info/repository/hellonico/" :creds :gpg}]]
   :dependencies [[com.google/ortools "6.7.4981"]
