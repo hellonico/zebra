@@ -7,7 +7,7 @@
 
 # examples
 
-```
+```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
         x (.makeNumVar solver 0.0 1.0 "x")
         y (.makeNumVar solver 0.0 2.0 "y")
@@ -18,7 +18,7 @@
     (is (= 2.0 (.solutionValue y))))
 ```
 
-```
+```clojure
 (let [solver (new-solver "myprogram" "GLOP_LINEAR_PROGRAMMING")
     x (.makeNumVar solver 0.0 infinity "x")
     y (.makeNumVar solver 0.0 infinity "y")
