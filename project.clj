@@ -12,6 +12,7 @@
                   ["vcs" "push"]]
   :license {:name "Apache License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-auto "0.1.3"]]
   :repositories [["vendredi" {:url "https://repository.hellonico.info/repository/hellonico/" :creds :gpg}]]
   :dependencies [[com.google/ortools "6.7.4981"]
                  [org.hellonico/ortools-native "6.7.4981"]

@@ -19,3 +19,15 @@
    (.getFlow max-flow i)
    "/"
    (.getCapacity max-flow i)))
+
+; (defn print-statistics [solver]
+;   (println "Solutions: " (.solutions solver))
+;   (println "Failures: " (.failures solver))
+;   (println "Branches: " (.branches solver))
+;   (println "Wall time: " (.wallTime solver) " ms"))
+
+(defn print-solution [solver values]
+  (println "Wall time: " (.wallTime solver) " ms")
+  (println "Optimal objective value = " (.value (.objective solver)))
+  (doseq [value values]
+    (println  (.name value) "=> "  (.solutionValue value))))
