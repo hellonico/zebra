@@ -1,5 +1,6 @@
 (ns zebra.core
-  (:import [com.google.ortools.linearsolver MPSolver$OptimizationProblemType MPSolver]))
+  (:import [com.google.ortools.algorithms KnapsackSolver KnapsackSolver$SolverType]
+            [com.google.ortools.linearsolver MPSolver$OptimizationProblemType MPSolver]))
 
 (def loaded (atom false))
 (defn load-natives []
@@ -22,8 +23,12 @@
   (com.google.ortools.constraintsolver.Solver. _name))
 
 (defn new-mincostflow[]
-  (com.google.ortools.graph.MinCostFlow.)
-  )
+  (com.google.ortools.graph.MinCostFlow.))
+
+(defn new-knapsack[]
+  (KnapsackSolver.
+   KnapsackSolver$SolverType/KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER "test"))
+
 (defn new-maxflow[]
   (com.google.ortools.graph.MaxFlow.))
 

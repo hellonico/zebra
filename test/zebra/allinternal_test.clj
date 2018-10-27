@@ -30,11 +30,11 @@
     (.addConstraint solver (.makeLess solver (nth diffs 0) (nth diffs 1)))
 
     (.newSearch solver db)
-    (while (.nextSolution solver)
-      (println "x:")
-      (println (clojure.string/join ", " (map #(.value %) x)))
-      (println "diffs:")
-      (println (clojure.string/join ", " (map #(.value %) diffs))))
+    ; (while (.nextSolution solver)
+    ;   (println "x:")
+    ;   (println (clojure.string/join ", " (map #(.value %) x)))
+    ;   (println "diffs:")
+    ;   (println (clojure.string/join ", " (map #(.value %) diffs))))
 
     (.endSearch solver)
     (print-statistics solver)))
