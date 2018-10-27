@@ -21,5 +21,11 @@
 (defn new-constraintsolver [_name]
   (com.google.ortools.constraintsolver.Solver. _name))
 
+(defn new-mincostflow[]
+  (com.google.ortools.graph.MinCostFlow.)
+  )
+(defn new-maxflow[]
+  (com.google.ortools.graph.MaxFlow.))
+
 (def infinity (MPSolver/infinity))
 (def -infinity (* -1 infinity))
