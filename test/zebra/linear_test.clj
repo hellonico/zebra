@@ -28,7 +28,6 @@
 ;   (-solve-with-solver "SCIP_MIXED_INTEGER_PROGRAMMING")  ; missing ?
 )
 
-
 (deftest linearexample-test
   (let [solver (new-mpsolver "myprogram" "GLOP_LINEAR_PROGRAMMING")
         x (.makeIntVar solver 0.0 infinity "x")

@@ -1,6 +1,8 @@
 (ns zebra.utils)
 
-
+;
+; TESTING
+;
 (defn difference ^double [^double x ^double y]
   (/ (Math/abs (- x y))
      (max (Math/abs x) (Math/abs y))))
@@ -8,6 +10,9 @@
   (< (difference x y) tolerance))
 (def === (partial close? 0.001))
 
+;
+; PRINTING
+;
 
 (defn print-maxflow-arc [max-flow i]
   (println
@@ -20,11 +25,11 @@
    "/"
    (.getCapacity max-flow i)))
 
-; (defn print-statistics [solver]
-;   (println "Solutions: " (.solutions solver))
-;   (println "Failures: " (.failures solver))
-;   (println "Branches: " (.branches solver))
-;   (println "Wall time: " (.wallTime solver) " ms"))
+(defn print-statistics [solver]
+  (println "Solutions: " (.solutions solver))
+  (println "Failures: " (.failures solver))
+  (println "Branches: " (.branches solver))
+  (println "Wall time: " (.wallTime solver) " ms"))
 
 (defn print-solution [solver values]
   (println "Wall time: " (.wallTime solver) " ms")
