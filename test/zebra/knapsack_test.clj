@@ -24,4 +24,8 @@
     (.init solver profits weights capacities)
     (let [computedProfit (.solve solver)]
       (println "Optimal_Profit = "  computedProfit  "/" optimalProfit)
+
+      (doseq [i (filter #(.bestSolutionContains solver %) (range (count profits))) ]
+        (println "[" (nth profits i)  "/" (nth (first weights) i) "]" ))
+    
       (is (= computedProfit optimalProfit)))))
