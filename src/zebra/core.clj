@@ -1,5 +1,6 @@
 (ns zebra.core
   (:import [com.google.ortools.algorithms KnapsackSolver KnapsackSolver$SolverType]
+           [com.google.ortools.constraintsolver IntVar Solver]
             [com.google.ortools.linearsolver MPSolver$OptimizationProblemType MPSolver]))
 
 (def loaded (atom false))
@@ -31,6 +32,12 @@
 
 (defn new-maxflow[]
   (com.google.ortools.graph.MaxFlow.))
+
+; (defn new-intvar[]
+;   (new com.google.ortools.constraintsolver.IntVar))
+
+(defn new-arrayintvar[n]
+  (make-array com.google.ortools.constraintsolver.IntVar n))
 
 (def infinity (MPSolver/infinity))
 (def -infinity (* -1 infinity))
