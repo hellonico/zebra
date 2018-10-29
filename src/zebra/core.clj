@@ -53,7 +53,8 @@
 (def CHOOSE_MIN_SIZE_LOWEST_MAX Solver/CHOOSE_MIN_SIZE_LOWEST_MAX)
 (def ASSIGN_CENTER_VALUE Solver/ASSIGN_CENTER_VALUE)
 
-(defn new-arrayintvar [n]
+(defn new-arrayintvar 
+  [n]
   (make-array com.google.ortools.constraintsolver.IntVar n))
 
 ; make same for num
@@ -94,3 +95,11 @@
         ;  (dotimes [i (count q)]
         ;    (print (.value (nth q i)) " "))
       (println (clojure.string/join ", " (map #(.value %) q))))))
+
+(defn solutions [solver q]
+  (loop [sol [] hasMore (.nextSolution solver)]
+       (if (not hasMore)
+         sol
+         (recur 
+          (conj sol (into [] (map #(.value %) q)))
+          (.nextSolution solver)))))
