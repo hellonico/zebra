@@ -7,11 +7,11 @@
 (defn n-queen
   ([n] (n-queen n nil))
   ([n _num]
-   (let [solver (new-constraintsolver "solver")
+   (let [solver (new-constraintsolver "nqueens")
          q (.makeIntVarArray  solver n 0 (dec n) "q")
-         db (.makePhase solver q Solver/CHOOSE_MIN_SIZE_LOWEST_MAX Solver/ASSIGN_CENTER_VALUE)
-         s (atom 0)]
-     (.addConstraint solver (.makeAllDifferent solver q))
+         db (.makePhase solver q Solver/CHOOSE_MIN_SIZE_LOWEST_MAX Solver/ASSIGN_CENTER_VALUE)]
+     (.addConstraint solver
+                     (.makeAllDifferent solver q))
 
      (dotimes [i n]
        (dotimes [j i]
@@ -25,13 +25,7 @@
                                            (.var (.makeSum solver (nth q j) (* -1 j)))))))
 
      (.newSearch solver db)
-
-     (while (and (.nextSolution solver) (or (nil? _num) (< @s _num)))
-       (swap! s inc)
-       (dotimes [i n]
-         (print (.value (nth q i)) " "))
-       (println ""))
-
+     (print-n-array-solutions solver q _num)
      (.endSearch solver))))
 
 (deftest n-queen-5

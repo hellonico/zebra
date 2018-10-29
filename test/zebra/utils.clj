@@ -36,3 +36,11 @@
   (println "Optimal objective value = " (.value (.objective solver)))
   (doseq [value values]
     (println  (.name value) "=> "  (.solutionValue value))))
+
+(defn print-n-array-solutions [solver q _num]
+  (let [s (atom 0)]
+       (while (and (.nextSolution solver) (or (nil? _num) (< @s _num)))
+         (swap! s inc)
+         (dotimes [i (count q)]
+           (print (.value (nth q i)) " "))
+         (println ""))))
