@@ -1,5 +1,4 @@
 (ns zebra.nqueens-test
-  (:import [com.google.ortools.constraintsolver Solver])
   (:require [clojure.test :refer :all]
             [zebra.utils :refer :all]
             [zebra.core :refer :all]))
@@ -9,7 +8,7 @@
   ([n _num]
    (let [solver (new-constraintsolver "nqueens")
          q (.makeIntVarArray  solver n 0 (dec n) "q")
-         db (.makePhase solver q Solver/CHOOSE_MIN_SIZE_LOWEST_MAX Solver/ASSIGN_CENTER_VALUE)]
+         db (.makePhase solver q CHOOSE_MIN_SIZE_LOWEST_MAX ASSIGN_CENTER_VALUE)]
      (.addConstraint solver
                      (.makeAllDifferent solver q))
 

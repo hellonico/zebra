@@ -1,5 +1,4 @@
 (ns zebra.allinternal-test
-  (:import [com.google.ortools.constraintsolver Solver])
   (:require [clojure.test :refer :all]
             [zebra.utils :refer :all]
             [zebra.core :refer :all]))
@@ -9,7 +8,7 @@
   (let [solver (new-constraintsolver "AllInterval")
         x  (.makeIntVarArray solver n 0 (dec n) "x")
         diffs (.makeIntVarArray solver (dec n) 1 (dec n) "diffs")
-        db (.makePhase solver x Solver/CHOOSE_FIRST_UNBOUND Solver/ASSIGN_MIN_VALUE)]
+        db (.makePhase solver x CHOOSE_FIRST_UNBOUND ASSIGN_MIN_VALUE)]
 
     ; all x should be different
     (.addConstraint solver (.makeAllDifferent solver x))
