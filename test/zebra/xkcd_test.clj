@@ -13,6 +13,7 @@
                                    (.var (.makeScalProd solver x iarr))
                                    total))
     (.newSearch solver db)
+    ; (print-n-array-solutions solver x nil) 
     (let [sol (solutions solver x)]
       (print-statistics solver)
       (.endSearch solver)
@@ -25,5 +26,5 @@
 
 (deftest prices-with-xkcd-2
   (is (=
-       [[0 0 0 0 2 2] [0 0 0 4 0 1] [0 3 1 0 2 0] [1 1 2 0 2 0] [3 0 0 1 1 1] [6 0 0 2 0 0]]
-       (println (xkcd [215 275 335 355 420 580] 2000 0 10)))))
+  [[0 0 0 0 2 2] [0 3 1 0 2 0] [1 1 2 0 2 0] [3 0 0 1 1 1]]
+  (xkcd [215 275 335 355 420 580] 2000 0 3))))
