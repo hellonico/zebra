@@ -3,9 +3,21 @@
             [zebra.utils :refer :all]
             [zebra.core :refer :all]))
 
+(defn solve-knapsack [profits weights capacities]
+  (let [solver (new-knapsack)]
+
+    (println "Solving knapsack with " (count profits) " items")
+    (.init solver profits weights capacities)
+    (let [computedProfit (.solve solver)]
+      ; (println "Optimal_Profit = "  computedProfit  "/" optimalProfit)
+      ; move to print
+      (doseq [i (filter #(.bestSolutionContains solver %) (range (count profits)))]
+        (println "[" (nth profits i)  "/" (nth (first weights) i) "]"))
+
+      computedProfit)))
+
 (deftest knapsack
-  (let [solver (new-knapsack)
-        profits (long-array
+  (let [profits (long-array
                  [360 83 59 130 431 67 230 52 93
                   125 670 892 600 38 48 147 78 256
                   63 17 120 164 432 35 92 110 22
@@ -20,12 +32,4 @@
                                            79 20 65 52 13])])
         capacities (long-array [850])
         optimalProfit 7534]
-    (println "Solving knapsack with " (count profits) " items")
-    (.init solver profits weights capacities)
-    (let [computedProfit (.solve solver)]
-      (println "Optimal_Profit = "  computedProfit  "/" optimalProfit)
-
-      (doseq [i (filter #(.bestSolutionContains solver %) (range (count profits))) ]
-        (println "[" (nth profits i)  "/" (nth (first weights) i) "]" ))
-    
-      (is (= computedProfit optimalProfit)))))
+    (is (= (solve-knapsack profits weights capacities) optimalProfit))))
