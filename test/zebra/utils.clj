@@ -41,6 +41,6 @@
   (let [s (atom 0)]
        (while (and (.nextSolution solver) (or (nil? _num) (< @s _num)))
          (swap! s inc)
-         (dotimes [i (count q)]
-           (print (.value (nth q i)) " "))
-         (println ""))))
+        ;  (dotimes [i (count q)]
+        ;    (print (.value (nth q i)) " "))
+         (println (clojure.string/join ", " (map #(.value %) q))))))
